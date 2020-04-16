@@ -55,7 +55,7 @@ def printerWriter(grtLoss, grtGain, totalMonths, totalProfits, averageChange, in
        Financial Analysis
 ----------------------------------
 Total Months:   {totalMonths}
-Total:   ${totalProfits:,}
+Total:   $ {totalProfits:,}
 Average Change:   $ {averageChange:,.2f}
 Greatest Increase in Profits: {grtGain['date']} $ {grtGain['value']:,.2f}
 Greatest Decrease in Profits: {grtLoss['date']} ($ {grtLoss['value']:,.2f})
@@ -64,18 +64,19 @@ Greatest Decrease in Profits: {grtLoss['date']} ($ {grtLoss['value']:,.2f})
     storyPrint(outputToConsole, .075)
 
 def main():
-    inputPath = os.path.join('Resources', 'budget_data.csv')
-
-    grtLoss, grtGain, totalMonths, totalProfits, averageChange = greatestGainAndLoss(inputPath)
 
     try:
-        os.remove( './Budget_Data_Totals.txt')
+        os.remove('./Budget_Data_Totals.txt')
         a = 'Output File already exists. Deleting...'
         storyPrint(a, .0625)
     except OSError:
         b = 'Creating File Python_Write_File.txt...'
         storyPrint(b, .0625)
         pass
+    
+    inputPath = os.path.join('Resources', 'budget_data.csv')
+    
+    grtLoss, grtGain, totalMonths, totalProfits, averageChange = greatestGainAndLoss(inputPath)
     printerWriter(grtLoss, grtGain, totalMonths, totalProfits, averageChange, inputPath)
         
 main()

@@ -27,9 +27,7 @@ def votesCounter(inputPath):
         next(f)
         
         for row in f:
-            # counter += 1
-            # if counter == 10: 
-            #     break
+            
             
             totalVotes += 1
             row = row.split(",")
@@ -76,7 +74,7 @@ Correy: {pCorrey:.3f}%  {totalVotesCorrey:,}
 Li: {pLi:.3f}%  {totalVotesLi:,}
 O'Tooley': {pTool:.3f}%  {totalVotesTooley:,}
 ----------------------------------
-Winner: {winner}
+        Winner: {winner}
 ----------------------------------
 """
 
