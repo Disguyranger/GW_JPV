@@ -30,15 +30,15 @@ def votesCounter(inputPath):
             
             
             totalVotes += 1
-            row = row.split(",")
+            row = row.rstrip('\n').split(",")
             
-            if row[2] == 'Khan\n':
+            if row[2] == 'Khan':
                 totalVotesKhan += 1
-            elif str(row[2]) == 'Correy\n':
+            elif str(row[2]) == 'Correy':
                 totalVotesCorrey += 1
-            elif str(row[2]) == 'Li\n':
+            elif str(row[2]) == 'Li':
                 totalVotesLi += 1
-            elif str(row[2]) == "O'Tooley\n":
+            elif str(row[2]) == "O'Tooley":
                 totalVotesTooley += 1
             else:
                 continue
@@ -87,7 +87,7 @@ def main():
     totalVotes, totalVotesKhan, totalVotesCorrey, totalVotesLi, totalVotesTooley, winner = votesCounter(inputPath)
     printerWriter(totalVotes, totalVotesKhan, totalVotesCorrey, totalVotesLi, totalVotesTooley, winner, inputPath)
     try:
-        os.remove( './election_Data_Totals.txt')
+        os.remove( './Python_Write_File.txt')
         a = 'Output File already exists. Deleting...'
         storyPrint(a, .075)
     except OSError:
