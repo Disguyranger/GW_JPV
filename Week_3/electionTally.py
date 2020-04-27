@@ -4,6 +4,7 @@ Created on Sat Apr 11 03:26:55 2020
 
 @author: disguy
 """
+#%%
 import time, sys, os
 
 
@@ -14,7 +15,7 @@ def storyPrint(text, timer):
         time.sleep(timer)
     print("\n")
 
-
+#%%
 def votesCounter(inputPath):
     totalVotes = 0
     totalVotesKhan = 0
@@ -54,7 +55,7 @@ def votesCounter(inputPath):
     
     
     return(totalVotes, totalVotesKhan, totalVotesCorrey, totalVotesLi, totalVotesTooley, winner)
-
+#%%
 def printerWriter(totalVotes, totalVotesKhan, totalVotesCorrey, totalVotesLi, totalVotesTooley, winner, inputPath):
     f = open('election_data_.txt', 'w')
 
@@ -81,6 +82,7 @@ O'Tooley': {pTool:.3f}%  {totalVotesTooley:,}
     f.write(outputToConsole)
     storyPrint(outputToConsole, .075)
     f.close()
+#%%
 def main():
     inputPath = os.path.join('Resources', 'election_data.csv')
 
@@ -95,7 +97,7 @@ def main():
         storyPrint(b, .075)
         pass
     
-        
+#%%        
 main()
 
 
