@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import tkinter as tk
-import requests, json
-import datetime, time
 from scipy.stats import linregress
-import sys
+import requests, json, datetime, time, sys
+
+
 def storyPrint(text):
     for letter in text:
         sys.stdout.write(letter)
