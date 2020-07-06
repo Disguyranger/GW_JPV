@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content='ie=edge'>
+    <title>Mars Interim</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <p class='btn btn-primary btn-lg' href='/scrape' role='button'>Scrape Mars</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+{%for mars in mars_data_html%}
+        <h2>Mars News</h2>
+        <h3>{{mars.title}}</h3>
+        <h4>{{mars.paragraph}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Mars Images</h2>
+            <img src="{{mars.images}}" alt="Mars Image" height='400' width='500'>
+        </div>
+    </div>
+
+</body>

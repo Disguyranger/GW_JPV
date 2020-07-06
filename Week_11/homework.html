@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title>Website Design using HTML and CSS</title>
+    <link rel="stylesheet" href="css/style_hw.css">
+    
+</head>
+<body>
+   <div id="main">
+       <div class="navbar">
+           <nav>
+               <ul>
+                   <li><a href='index.html' class='nav-link-wrapper'>Home</a></li>
+               </ul>
+           </nav>
+       </div>
+       <div class="circle-box">
+           <svg height="402" width="402">
+               <circle r="200" cx="201" cy="201" stroke-width="1px" stroke="gray" fill="none" />
+           </svg>
+            <svg height="402" width="402">
+               <circle r="200" cx="201" cy="201" stroke-width="1px" stroke="#fff" fill="none" id="svgCircle"/>
+           </svg>
+           <div>
+               <span id="step1"></span>
+               <span id="step2"></span>
+               <span id="step3"></span>
+               <span id="step4"></span>
+               <span id="step5"></span>
+           </div>
+           <div class="user-box" id="userBox">
+               <div class="user">
+                   <h1>Max Temperature</h1>
+                   <p>As latitude moves from -40 to 20, 
+                    there is an even spread.
+                    Direct correlation of Max Temperature 
+                    dropping as lattitude continues past 0.
+                    Tell us Dis, are you noticing anything 
+                    out of the ordinary on humidity?</p>
+               </div>
+                <div class="user">
+                   <h1>Humidity</h1>
+                   <p>Based off of what we're seeing here, Dan, 
+                    there is too much noise on the page, telling 
+                    us that the correlation is that 
+                    sharkbait-hoo-hah-hah did not survive the fall
+                    into the ocean. Also, there was no correlation, 
+                    just like this page on humidity. Back to you, 
+                    Dan.</p>
+               </div>
+                <div class="user">
+                   <h1>Cloudiness</h1>
+                   <p>Well that about calls it folks, cloudines is about 
+                    the weirdest picture of my parents signing off the 
+                    number 332532 that I've ever seen. John, do you 
+                    have anything for us on windspeed?</p>
+                   
+               </div>
+                <div class="user">
+                   <h1>WIND SPEED!</h1>
+                   <p>John here! In case you can't hear me, it's because 
+                    I've been eaten by a tornado. That's because
+                    there are about 10 cities in the northern 
+                    hemisphere that I decided to look at, and a tornado 
+                    ate me! Did you hear... a f... tornado ate... NEMO 
+                    LIVES ON YOU... (mic cuts off)<br>
+                    Looks like we've lost John. I guess you could say, 
+                    he's been... swept away... (ba-dum-tss)</p>
+                   
+               </div>
+                <div class="user">
+                   <h1>There never would be peace</h1>
+                   <p>As the many battled for the thing, they all found 
+                       a singular purpose. That the correlation only 
+                       existed in a MAX Temperature. This is why we had
+                       a war of the Morty's.
+                   </p>
+                   
+               </div>
+               
+           </div>
+       </div>
+   </div>
+    
+    <script>
+        var svgCircle = document.getElementById("svgCircle");
+        var step1 = document.getElementById("step1");
+        var step2 = document.getElementById("step2");
+        var step3 = document.getElementById("step3");
+        var step4 = document.getElementById("step4");
+        var step5 = document.getElementById("step5");
+        var main = document.getElementById("main");
+        var userBox = document.getElementById("userBox");
+        
+        main.style.backgroundImage = "url(img/Fig1.png)";
+        
+        step1.addEventListener('click',()=>{
+            svgCircle.style.strokeDashoffset = "1004";
+            main.style.backgroundImage = "url(img/Fig2.png)";
+            userBox.style.top = "-350px";
+        });
+        
+        step2.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset = "753";
+                main.style.backgroundImage = "url(img/Fig3.png)";
+                userBox.style.top = "-800px";
+            });
+        step3.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset = "502";
+                main.style.backgroundImage = "url(img/Fig4.png)";
+            userBox.style.top = "-1250px";
+            });
+        step4.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset = "251";
+                main.style.backgroundImage = "url(img/5minadventure.jpg)";
+                userBox.style.top = "-1700px";
+            });
+        step5.addEventListener('click',()=>{
+                svgCircle.style.strokeDashoffset = "0";
+                main.style.backgroundImage = "url(img/Fig1.png)";
+                userBox.style.top = "100px";
+            });
+
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
