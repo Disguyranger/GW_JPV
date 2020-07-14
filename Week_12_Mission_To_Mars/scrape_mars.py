@@ -27,11 +27,7 @@ def scrape_all():
 def mars_news(browser):
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
-
-    # Get first list item and wait half a second if not immediately present
-    #time.sleep(2)
-    browser.is_element_present_by_css("ul.item_list li.slide", wait_time=0.5)
-
+    time.sleep(2)
     html = browser.html
     news_soup = BeautifulSoup(html, "html.parser")
 
@@ -76,16 +72,9 @@ def hemispheres(browser):
 
     hemisphere_image_urls = []
     for i in range(4):
-
-        # Find the elements on each loop to avoid a stale element exception
         browser.find_by_css("a.product-item h3")[i].click()
-
         hemi_data = scrape_hemisphere(browser.html)
-
-        # Append hemisphere object to list
         hemisphere_image_urls.append(hemi_data)
-
-        # Finally, we navigate backwards
         browser.back()
 
     return hemisphere_image_urls
@@ -94,69 +83,41 @@ def hemispheres(browser):
 def twitter_weather(browser):
     url = "https://twitter.com/marswxreport?lang=en"
     browser.visit(url)
-
-    # Pause for 5 seconds to let the Twitter page load before extracting the html
-    time.sleep(5)
-
+    time.sleep(2)
     html = browser.html
     weather_soup = BeautifulSoup(html, "html.parser")
-
-    # First, find a tweet with the data-name `Mars Weather`
     tweet_attrs = {"class": "tweet", "data-name": "Mars Weather"}
     mars_weather_tweet = weather_soup.find("div", attrs=tweet_attrs)
-
-    # Next, search within the tweet for the p tag or span tag containing the tweet text
-    # As Twitter is frequently making changes the try/except will identify the tweet
-    # text using a regular expression pattern that includes the string 'sol' if there
-    # is no p tag with a class of 'tweet-text'
     try:
         mars_weather = mars_weather_tweet.find("p", "tweet-text").get_text()
-
     except AttributeError:
-
         pattern = re.compile(r'sol')
         mars_weather = weather_soup.find('span', text=pattern).text
-
     return mars_weather
 
-
 def scrape_hemisphere(html_text):
-    # Soupify the html text
     hemi_soup = BeautifulSoup(html_text, "html.parser")
-
-    # Try to get href and text except if error.
     try:
         title_elem = hemi_soup.find("h2", class_="title").get_text()
         sample_elem = hemi_soup.find("a", text="Sample").get("href")
-
-    except AttributeError:
-
-        # Image error returns None for better front-end handling
+    except:
         title_elem = None
         sample_elem = None
-
     hemisphere = {
         "title": title_elem,
         "img_url": sample_elem
     }
-
     return hemisphere
-
 
 def mars_facts():
     try:
         df = pd.read_html("http://space-facts.com/mars/")[0]
-    except BaseException:
+    except:
         return None
-
     df.columns = ["description", "value"]
     df.set_index("description", inplace=True)
-
-    # Add some bootstrap styling to <table>
     return df.to_html(classes="table table-striped")
 
 
 if __name__ == "__main__":
-
-    # If running as script, print scraped data
     print(scrape_all())
