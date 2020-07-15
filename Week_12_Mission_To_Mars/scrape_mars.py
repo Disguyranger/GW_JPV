@@ -76,9 +76,7 @@ def hemispheres(browser):
         hemi_data = scrape_hemisphere(browser.html)
         hemisphere_image_urls.append(hemi_data)
         browser.back()
-
     return hemisphere_image_urls
-
 
 def twitter_weather(browser):
     url = "https://twitter.com/marswxreport?lang=en"
@@ -117,7 +115,6 @@ def mars_facts():
     df.columns = ["description", "value"]
     df.set_index("description", inplace=True)
     return df.to_html(classes="table table-striped")
-
 
 if __name__ == "__main__":
     print(scrape_all())
