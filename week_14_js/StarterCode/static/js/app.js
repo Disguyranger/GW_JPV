@@ -5,6 +5,7 @@ var tbody = d3.select('tbody');
 
 // id='datetime'  BUTTON CLICK id='filter-btn'
 var filterData = function() {
+    tbody.html("");
     var dateTimeCheck = document.getElementById('datetime').value;
     var i, allDates
     allDates = [];
